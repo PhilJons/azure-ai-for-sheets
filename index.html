@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure AI Add-on for Google Sheets</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #0078D4, #0063B1);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        .header p {
+            font-size: 1.2rem;
+            margin: 1rem 0 0;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature h3 {
+            color: #0078D4;
+            margin-top: 0;
+        }
+        .getting-started {
+            background: #f0f7ff;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .getting-started ol {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Azure AI Add-on for Google Sheets</h1>
+        <p>Harness the power of Azure AI directly in your spreadsheets</p>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <h3>Smart Text Analysis</h3>
+                <p>Analyze text content directly in your spreadsheet cells using Azure's advanced AI capabilities.</p>
+            </div>
+            <div class="feature">
+                <h3>Easy Integration</h3>
+                <p>Simple setup process with your Azure API credentials. Start analyzing in minutes.</p>
+            </div>
+            <div class="feature">
+                <h3>Rate Limited Protection</h3>
+                <p>Built-in rate limiting and retry mechanisms ensure reliable performance and cost control.</p>
+            </div>
+        </div>
+
+        <div class="getting-started">
+            <h2>Getting Started</h2>
+            <ol>
+                <li>Install the Azure AI Add-on from the Google Workspace Marketplace</li>
+                <li>Open your Google Sheet and find the "Azure AI" menu in the top menu bar</li>
+                <li>Click "Configure Azure Settings" and enter your Azure API credentials</li>
+                <li>Start analyzing text using the AZURE_ANALYZE_TEXT function in your cells</li>
+            </ol>
+        </div>
+
+        <div class="usage">
+            <h2>How to Use</h2>
+            <p>Use the AZURE_ANALYZE_TEXT function in any cell with three optional parameters:</p>
+            <pre>AZURE_ANALYZE_TEXT(text, systemPrompt, temperature)</pre>
+            <ul>
+                <li><strong>text:</strong> The content you want to analyze</li>
+                <li><strong>systemPrompt:</strong> Optional instructions for the AI (default: empty)</li>
+                <li><strong>temperature:</strong> Controls response creativity (default: 0.7)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://github.com/yourusername/azure-sheets-addon" target="_blank">GitHub</a>
+        <p>Created by Aura AI Taskforce</p>
+    </div>
+</body>
+</html>

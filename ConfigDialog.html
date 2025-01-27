@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .button-container {
+        text-align: right;
+      }
+      .save-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .save-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-group">
+      <label for="endpoint">Azure Endpoint URL:</label>
+      <input type="text" id="endpoint" name="endpoint" placeholder="https://your-resource.cognitiveservices.azure.com/">
+    </div>
+    <div class="form-group">
+      <label for="apiKey">API Key:</label>
+      <input type="text" id="apiKey" name="apiKey" placeholder="Enter your Azure API key">
+    </div>
+    <div class="button-container">
+      <button class="save-button" onclick="saveConfig()">Save Configuration</button>
+    </div>
+
+    <script>
+      // Load existing configuration when dialog opens
+      google.script.run.withSuccessHandler(loadConfig).loadAzureConfig();
+
+      function loadConfig(config) {
+        if (config) {
+          document.getElementById('endpoint').value = config.endpoint || '';
+          document.getElementById('apiKey').value = config.apiKey || '';
+        }
+      }
+
+      function saveConfig() {
+        const endpoint = document.getElementById('endpoint').value.trim();
+        const apiKey = document.getElementById('apiKey').value.trim();
+
+        if (!endpoint || !apiKey) {
+          alert('Please fill in both the endpoint URL and API key.');
+          return;
+        }
+
+        google.script.run
+          .withSuccessHandler(onSaveSuccess)
+          .withFailureHandler(onSaveError)
+          .saveAzureConfig(endpoint, apiKey);
+      }
+
+      function onSaveSuccess() {
+        alert('Configuration saved successfully!');
+        google.script.host.close();
+      }
+
+      function onSaveError(error) {
+        alert('Error saving configuration: ' + error.message);
+      }
+    </script>
+  </body>
+</html>
